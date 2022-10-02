@@ -8,3 +8,5 @@ const getRand = (min, max) => {
   return Math.random() * (max - min + 1)  + min
 };
 const checkLen = (str, max = 500) => str.length <= max;
+getRand();
+checkLen();
