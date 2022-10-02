@@ -5,7 +5,7 @@ const getRand = (min, max) => {
   if (min > max) {
     [min, max] = [max, min];
   }
-  return Math.random() * (max - min + 1)  + min
+  return Math.random() * (max - min + 1)  + min;
 };
 const checkLen = (str, max = 500) => str.length <= max;
 getRand();
