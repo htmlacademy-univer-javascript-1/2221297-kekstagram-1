@@ -1,4 +1,4 @@
 import './util.js';
-import {addPhotos} from './add.js';
+import {postPhotos} from './add.js';
 
-addPhotos();
+postPhotos();

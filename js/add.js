@@ -19,4 +19,4 @@ const postPhotos = () => {
   }
 };
 
-export{addPhotos};
+export{postPhotos};
