@@ -1,4 +1,3 @@
-import './util.js';
-import {postPhotos} from './add.js';
+import {photos} from './data.js';
 
-postPhotos();
+photos();
