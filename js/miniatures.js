@@ -14,6 +14,3 @@ const createMiniatures = (photos) => {
 };
 
 export {createMiniatures};
-
-
-
