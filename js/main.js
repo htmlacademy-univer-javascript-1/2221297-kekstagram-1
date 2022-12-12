@@ -59,3 +59,5 @@ const postPhotos = () => {
 };
 
 postPhotos();
+
+export {photos};
