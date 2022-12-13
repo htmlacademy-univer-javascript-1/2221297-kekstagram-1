@@ -1,16 +1,20 @@
-const template = document.querySelector('#picture').content;
-const documentFragment = document.createDocumentFragment();
+const pictureTemplate = document.querySelector('#picture').content.querySelector('.picture');
 const pictures = document.querySelector('.pictures');
+const picturesFragment = document.createDocumentFragment();
 
-const createMiniatures = (photos) => {
-  photos.forEach((image) => {
-    const object = template.cloneNode(true);
-    object.querySelector('.picture__img').src = image.url;
-    object.querySelector('.picture__likes').textContent = image.likes;
-    object.querySelector('.picture__comments').textContent = image.comments.length;
-    documentFragment.append(object);
+const createMimiature = (picture) => {
+  const object = pictureTemplate.cloneNode(true);
+  object.src = picture.url;
+  object.querySelector('.picture__comments').textContent = picture.comments.length;
+  object.querySelector('.picture__likes').textContent = picture.likes;
+  return object;
+};
+
+const createMiniatures = (images) => {
+  images.forEach((picture) => {
+    picturesFragment.appendChild(createMimiature(picture));
   });
-  pictures.append(documentFragment);
+  pictures.appendChild(picturesFragment);
 };
 
 export {createMiniatures};

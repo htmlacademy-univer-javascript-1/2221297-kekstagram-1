@@ -1,13 +1,10 @@
 import {getRand} from './util.js';
-const PHOTOS_COUNT = 25;
-const COUNT_COMMENTS=10;
-const DESCRIPTIONS = [
-  'Ура, скоро Новый Год!!!:)',
-  'Вчера ходила в кино... лучше бы не ходила',
-  'Я больше не буду ходить без шапки',
-  'Живите, кайфуйте, жизнь одна',
-  'Не баг, а фича;)'
-];
+
+const MAX_AVATARS_NUMBER = 6;
+const MAX_ITEMS_NUMBER = 25;
+const MIN_LIKES = 15;
+const MAX_LIKES = 200;
+const MAX_COMMENTS_NUMBER = 3;
 
 const MESSAGES = [
   'Всё отлично!',
@@ -23,32 +20,44 @@ const NAMES = [
   'Кристина',
   'Роман',
   'Анлегина',
-  'Андрей',
+  'Андрей'
 ];
 
-const photos=[];
+const DESCRIPTIONS = [
+  'Ура, скоро Новый Год!!!:)',
+  'Вчера ходила в кино... лучше бы не ходила',
+  'Я больше не буду ходить без шапки',
+  'Живите, кайфуйте, жизнь одна',
+  'Не баг, а фича;)'
+];
 
-const addComments = (id) => ({
-  id,
-  avatar : `img/avatar-${getRand(1,6)}.svg`,
-  message : MESSAGES[getRand(0,MESSAGES.length-1)],
-  name: NAMES[getRand(0, NAMES.length-1)],
-});
+const photo = [];
 
-const postPhoto = (id) => ({
-  id: id,
-  url: `img/avatar-${id+1}.svg`,
-  description: DESCRIPTIONS[getRand(0,DESCRIPTIONS.length-1)],
-  likes: getRand(15,200),
-  comments: Array.from({length : getRand(1,COUNT_COMMENTS)}).map((element,index) => addComments(index+1)),
-});
+const addComments = (count) => {
+  const comments = [];
+  for(let i = 1; i <= count; i++){
+    comments.push({
+      id: i,
+      avatar: `img/avatar-${getRand(1, MAX_AVATARS_NUMBER)}.svg`,
+      message: MESSAGES[getRand(0, MESSAGES.length - 1)],
+      name: NAMES[getRand(0, NAMES.length - 1)]
+    });
+  }
+  return comments;
+};
 
-const postPhotos = () => {
-  for (let i=0;i<PHOTOS_COUNT;i++){
-    photos.push(postPhoto(i));
+const addPhotos = () => {
+  for(let i = 1; i <= MAX_ITEMS_NUMBER; i++){
+    photo.push({
+      id: i,
+      url: `photos/${i}.jpg`,
+      description: DESCRIPTIONS[getRand(1, DESCRIPTIONS.length - 1)],
+      likes: getRand(MIN_LIKES, MAX_LIKES),
+      comments: addComments(getRand(1, MAX_COMMENTS_NUMBER))
+    });
   }
 };
 
-postPhotos();
+addPhotos();
 
-export {photos};
+export {photo};
