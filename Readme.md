@@ -1,7 +1,7 @@
 # Личный проект «Кекстаграм»
 
-* Студент: [Емелькина  Виктория](https://up.htmlacademy.ru/univer-js1/1/user/2221297).
-* Наставник: `Евгений Лепешкин`.
+* Студент: [Емелькина  Виктория].(https://up.htmlacademy.ru/univer-js1/1/user/2221297).
+* Наставник: [Евгений Лепешкин].(https://htmlacademy.ru/profile/spearance).
 
 ---
 
