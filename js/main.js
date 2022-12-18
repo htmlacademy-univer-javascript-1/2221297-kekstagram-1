@@ -1,3 +1,5 @@
-import {createUserData} from './data.js';
+import { createMiniatures } from './miniatures.js';
+import { getPhotos } from './data.js';
 
-const PHOTOS = () => Array.from({length: 25}).map((element, index) => element = createUserData(index + 1));(PHOTOS());
+const data = getPhotos();
+createMiniatures(data);
