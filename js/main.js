@@ -1,5 +1,3 @@
-import { createMiniatures } from './miniatures.js';
-import { getPhotos } from './data.js';
+import { makeBigPictures } from './miniatures.js';
 
-const data = getPhotos();
-createMiniatures(data);
+makeBigPictures();
