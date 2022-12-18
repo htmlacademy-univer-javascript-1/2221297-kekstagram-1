@@ -1,20 +1,21 @@
-function getRand(left, right) {
-  if (right === left){
-    return left;
-  }
-  if (right < left) {
-    left = left + right;
-    right = left - right;
-    left = left - right;
-  }
-  return Math.floor(Math.random() * (right - left + 1) + left);
-}
+const getRandomNumber = (start, end) => {
 
-function checkMaxLenght(testableStr, maxLenght){
-  if(typeof testableStr !== 'string') {
-    testableStr = String(testableStr);
+  if(end < start){
+    throw new Error('Начало диапазона не может быть больше конца');
   }
-  return testableStr.length <= maxLenght;
-}
-checkMaxLenght('qw', 3);
-getRand(1,10);
+
+  if(start === end){
+    return start;
+  }
+
+  if(start < 0){
+    throw new Error('Диапазон не может быть отрицательным');
+  }
+
+  return Math.floor(Math.random() * (end - start + 1)) + start;
+};
+
+const getCommentLength = (newComment, maxLength) => newComment.length <= maxLength;
+
+getRandomNumber(2, 7);
+getCommentLength('Комментарий', 20);
